@@ -5,7 +5,8 @@ const PERSONALITY_STYLES = {
   rose: { bubbleUser: "bg-purple-500", bubbleAI: "bg-purple-700" },
   chill: { bubbleUser: "bg-cyan-400", bubbleAI: "bg-cyan-600" },
   serious: { bubbleUser: "bg-blue-500", bubbleAI: "bg-blue-700" },
-  nanapatekar: { bubbleUser: "bg-yellow-400", bubbleAI: "bg-yellow-600" }, // new personality
+  nanapatekar: { bubbleUser: "bg-yellow-400", bubbleAI: "bg-yellow-600" },
+  brucewayne: { bubbleUser: "bg-gray-500", bubbleAI: "bg-black text-gray-200" }, // new personality
 };
 
 const Chatbox = () => {
@@ -44,7 +45,7 @@ const Chatbox = () => {
       <div className="flex flex-col h-screen w-[90%] bg-neutral-900 text-white p-4">
         {/* Personality Buttons */}
         <div className="flex gap-3 mb-3 justify-center flex-wrap">
-          {["rose", "chill", "serious", "nanapatekar"].map((p) => (
+          {["rose", "chill", "serious", "nanapatekar", "brucewayne"].map((p) => (
             <button
               key={p}
               onClick={() => setPersonality(p)}
@@ -54,7 +55,11 @@ const Chatbox = () => {
                   : "bg-gray-700 text-gray-200 hover:bg-gray-600"
               }`}
             >
-              {p === "nanapatekar" ? "Nana Patekar" : p.charAt(0).toUpperCase() + p.slice(1)}
+              {p === "nanapatekar"
+                ? "Nana Patekar"
+                : p === "brucewayne"
+                ? "Bruce Wayne"
+                : p.charAt(0).toUpperCase() + p.slice(1)}
             </button>
           ))}
         </div>
